@@ -1,0 +1,348 @@
+@import "tailwindcss";
+
+:root {
+  /* Base colors that don't change */
+  --accent-color: #3b82f6;
+  --accent-hover: #1d4ed8;
+}
+
+/* Light Theme Variables (default) */
+.light-theme {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --card-hover: rgba(249, 250, 251, 1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --header-overlay: rgba(255, 255, 255, 0.9);
+  --navbar-bg: rgba(255, 255, 255, 0.25);
+}
+
+/* Dark Theme Variables */
+.dark-theme {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --card-bg: #1f2937;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-hover: rgba(31, 41, 55, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --header-overlay: rgba(17, 24, 39, 0.9);
+  --navbar-bg: rgba(17, 24, 39, 0.5);
+}
+
+* {
+  font-family: Outfit;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.5s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.5s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-ping-slow {
+  animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-float-slow-delay {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.animate-grow-down {
+  animation: growDown 1.5s ease-out forwards;
+}
+
+.animate-expand {
+  animation: expand 1s ease-out forwards;
+  transform: scaleX(0);
+}
+
+.animate-expand-line {
+  animation: expand 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+  transform: scaleX(0);
+}
+
+.animate-skill-progress {
+  animation: skillProgress 1.5s ease-out forwards;
+  transform-origin: left;
+}
+
+.animate-typewriter {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  width: 0;
+  animation: typewriter 5s steps(30, end) infinite;
+  border-right: 3px solid transparent;
+  animation-delay: 0.5s;
+}
+
+.animate-typewriter-color {
+  animation: colorShift 5s ease-in-out infinite;
+  animation-delay: 0.5s;
+  background-image: linear-gradient(90deg, var(--accent-color), #4ade80);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.animate-typewriter::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 10%;
+  height: 80%;
+  width: 3px;
+  background-color: var(--accent-color);
+  animation: blinkCursor 0.6s steps(3) infinite, colorShift 5s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes typewriter {
+  0%, 100% { width: 0; }
+  20%, 80% { width: 100%; }
+}
+
+@keyframes blinkCursor {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--text-primary); }
+}
+
+@keyframes colorShift {
+  0%, 100% { color: var(--text-primary); }
+  25% { color: var(--accent-color); }
+  50% { color: #4ade80; }
+  75% { color: #f97316; }
+}
+
+@keyframes fadeInUp {
+  from { 
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pingSlow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes growDown {
+  0% {
+    height: 0;
+    top: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes skillProgress {
+  0% {
+    width: 0%;
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Hover animations */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Enhanced Work Section Animations */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(270deg);
+  }
+}
+
+@keyframes float-delay {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(90deg);
+  }
+}
+
+@keyframes float-slow-delay {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(45deg);
+  }
+}
+
+/* Animation utility classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float-delay 3.5s ease-in-out infinite 1s;
+}
+
+.animate-float-slow-delay {
+  animation: float-slow-delay 4.5s ease-in-out infinite 1.5s;
+}
+
