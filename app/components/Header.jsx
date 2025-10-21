@@ -76,8 +76,8 @@ const Header = () => {
         <div className='flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mt-4 sm:mt-6 animate-slide-up w-full'
              style={{ animationDelay: '0.6s' }}>
             <a 
-                href="/sample-resume.pdf"
-                download="Yasith-Banula-CV.pdf"
+                href="/Yasith_Banula_SE.pdf"
+                download="Yasith_Banula_SE.pdf"
                 className={`group inline-flex items-center justify-center gap-3 px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 w-full sm:w-auto
                 rounded-full transition-all duration-500 hover:-translate-y-1 hover:shadow-xl text-sm sm:text-base
                 ${isDark 
